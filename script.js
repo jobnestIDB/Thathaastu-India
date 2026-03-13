@@ -117,3 +117,26 @@ revealElements.forEach(section => {
             currentV3 = (currentV3 + 1) % slidesV3.length;
             slidesV3[currentV3].classList.add("active-v3");
         }, 4500);
+
+        // Smooth scroll without # in URL
+document.querySelectorAll(".scroll-link").forEach(link => {
+
+  link.addEventListener("click", function(e) {
+
+    e.preventDefault();
+
+    const targetId = this.getAttribute("data-target");
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+
+      targetSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+  });
+
+});
